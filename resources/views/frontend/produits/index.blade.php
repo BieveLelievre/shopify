@@ -19,7 +19,7 @@
                        <span>Creer un produit</span>
                     </a>
                 </div>
-                @if (count($produits))
+                @if (count($produits) > 0)
                 <div class="table-responsive">
                     <table class="table table-stripped table-bordered">
                         <thead>
