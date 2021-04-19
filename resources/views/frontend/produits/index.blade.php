@@ -60,10 +60,20 @@
                                                 @method('DELETE')
                                             </form>
                                             --}}
-                                            <a role="button" href="{{ route('produits.delete', $produit->id) }}" class="btn btn-sm btn-danger text-white" data-toggle="modal" id="smallButton" data-target="#smallModal" data-attr="{{ route('produits.delete', $produit->id) }}" title="Delete produit">
+                                            {{-- modal ajax works --}}
+                                            {{-- <a role="button" href="{{ route('produits.delete', $produit->id) }}" class="btn btn-sm btn-danger text-white" data-toggle="modal" id="smallButton" data-target="#smallModal" data-attr="{{ route('produits.delete', $produit->id) }}" title="Delete produit">
+                                                <i class="fas fa-trash"></i>
+                                                <span class="d-none d-md-inline">Lievre</span>
+                                            </a> --}}
+
+                                            <a role="button" href="#" class="btn btn-sm btn-danger text-white" title="Delete produit" onClick="event.preventDefault(); suppressionConfirm({{ $produit->id }});">
                                                 <i class="fas fa-trash"></i>
                                                 <span class="d-none d-md-inline">Lievre</span>
                                             </a>
+                                            <form id="{{ $produit->id }}" method="post" action="{{ route('produits.destroy', $produit) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                             
                                         </div>
                                     </div>

@@ -18,7 +18,7 @@ class EnsureUserIsAdmin
     public function handle(Request $request, Closure $next)
     {
         // dd(Auth::user());
-        if (null != Auth::user() OR !Auth::user()->isAdmin()) {
+        if (null == Auth::user() OR !Auth::user()->isAdmin()) {
            return abort('401');
         }
         return $next($request);
