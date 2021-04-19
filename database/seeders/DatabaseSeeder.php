@@ -21,8 +21,9 @@ class DatabaseSeeder extends Seeder
        ]); */
 
        // User::factory(5)->create();
-       Category::factory(5)->has(Produit::factory(2))->create();
+       // Category::factory(5)->has(Produit::factory(2))->create();
        $this->call([
+        CategorySeeder::class,
         RoleSeeder::class,
     ]);
     }
